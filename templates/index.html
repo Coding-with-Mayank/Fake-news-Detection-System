@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Fake News Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>Fake News Detector</h1>
+            </div>
+            <p class="tagline">AI-Powered Truth Verification System</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="text">
+                        <i class="fas fa-keyboard"></i> Text Input
+                    </button>
+                    <button class="tab-btn" data-tab="url">
+                        <i class="fas fa-link"></i> URL Input
+                    </button>
+                </div>
+
+                <div class="input-container">
+                    <!-- Text Input Tab -->
+                    <div class="tab-content active" id="text-tab">
+                        <textarea 
+                            id="text-input" 
+                            placeholder="Paste your news article text here...&#10;&#10;Example: 'BREAKING: Scientists discover miracle cure that Big Pharma doesn't want you to know!'"
+                            rows="8"
+                        ></textarea>
+                        <div class="char-count">
+                            <span id="char-counter">0</span> characters
+                        </div>
+                    </div>
+
+                    <!-- URL Input Tab -->
+                    <div class="tab-content" id="url-tab">
+                        <input 
+                            type="url" 
+                            id="url-input" 
+                            placeholder="Enter news article URL (e.g., https://example.com/article)"
+                        >
+                        <p class="input-hint">
+                            <i class="fas fa-info-circle"></i> 
+                            The system will automatically extract and analyze the article content
+                        </p>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="analyze-btn">
+                            <i class="fas fa-search"></i> Analyze
+                        </button>
+                        <button class="btn btn-secondary" id="clear-btn">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading Spinner -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Analyzing content...</p>
+            </div>
+
+            <!-- Results Section -->
+            <section class="results-section" id="results-section" style="display: none;">
+                <div class="results-header">
+                    <h2><i class="fas fa-chart-bar"></i> Analysis Results</h2>
+                </div>
+
+                <!-- Prediction Card -->
+                <div class="prediction-card" id="prediction-card">
+                    <div class="prediction-icon" id="prediction-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3 class="prediction-label" id="prediction-label">Analyzing...</h3>
+                    <div class="confidence-score">
+                        <span class="confidence-label">Confidence Score</span>
+                        <span class="confidence-value" id="confidence-value">0%</span>
+                    </div>
+                    <div class="reliability-badge" id="reliability-badge">
+                        <span id="reliability-text">-</span>
+                    </div>
+                </div>
+
+                <!-- Probability Distribution -->
+                <div class="probability-section">
+                    <h3><i class="fas fa-chart-pie"></i> Probability Distribution</h3>
+                    <div class="probability-bars">
+                        <div class="prob-item">
+                            <div class="prob-label">
+                                <span class="label-text">Fake News</span>
+                                <span class="prob-percentage" id="fake-prob">0%</span>
+                            </div>
+                            <div class="prob-bar">
+                                <div class="prob-fill fake" id="fake-bar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="prob-item">
+                            <div class="prob-label">
+                                <span class="label-text">Real News</span>
+                                <span class="prob-percentage" id="real-prob">0%</span>
+                            </div>
+                            <div class="prob-bar">
+                                <div class="prob-fill real" id="real-bar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Analysis -->
+                <div class="features-section">
+                    <h3><i class="fas fa-microscope"></i> Linguistic Analysis</h3>
+                    <div class="features-grid" id="features-grid">
+                        <!-- Features will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="result-actions">
+                    <button class="btn btn-primary" id="analyze-another-btn">
+                        <i class="fas fa-redo"></i> Analyze Another
+                    </button>
+                </div>
+            </section>
+
+            <!-- Error Message -->
+            <div class="error-message" id="error-message" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p id="error-text"></p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <p>Advanced ML-based system using Random Forest and NLP to detect fake news with 92%+ accuracy.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Technology</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Random Forest ML</li>
+                        <li><i class="fas fa-check"></i> TF-IDF Vectorization</li>
+                        <li><i class="fas fa-check"></i> NLTK Processing</li>
+                        <li><i class="fas fa-check"></i> Sentiment Analysis</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Developers</h4>
+                    <p>Mayank Kumar Kharwar, Manas Baiswar, Tanya</p>
+                    <p class="guide">Guide: Ms. Himani Sharma</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DIT University. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
