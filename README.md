@@ -337,28 +337,6 @@ python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
 - Balance fake/real samples
 - Clean training data
 
-## 🚧 Future Enhancements
-
-### Short-term (3-6 months)
-- [ ] Deep Learning integration (BERT/RoBERTa)
-- [ ] Multilingual support
-- [ ] Fact-checking API integration
-- [ ] Browser extension
-- [ ] Mobile app (Android/iOS)
-
-### Long-term (6-12 months)
-- [ ] Image manipulation detection
-- [ ] Video deepfake detection
-- [ ] Source credibility scoring
-- [ ] Social network analysis
-- [ ] Real-time monitoring dashboard
-
-## 👥 Contributors
-
-- **Mayank Kumar Kharwar** - Developer
-- **Manas Baiswar** - Developer
-- **Tanya** - Developer
-- **Ms. Himani Sharma** - Project Guide
 
 ## 📄 License
 
@@ -366,8 +344,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- DIT University, Dehradun
-- School of Computing
 - scikit-learn community
 - NLTK developers
 - Flask community
@@ -376,7 +352,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions or support:
 - Create an issue on GitHub
-- Email: [your-email@example.com]
+- Email: [mayankkharwar@gmail.com]
 
 ## 📚 References
 
