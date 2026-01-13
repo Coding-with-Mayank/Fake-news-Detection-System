@@ -204,4 +204,28 @@ function hideLoading() {
 }
 
 function showError(message) {
-    error
+    errorMessage.style.display = 'flex';
+    document.getElementById('error-text').textContent = message;
+    errorMessage.scrollIntoView({ behavior: 'smooth' });
+}
+
+function hideError() {
+    errorMessage.style.display = 'none';
+}
+
+function hideResults() {
+    resultsSection.style.display = 'none';
+}
+
+// Enter key support
+textInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && e.ctrlKey) {
+        analyzeBtn.click();
+    }
+});
+
+urlInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        analyzeBtn.click();
+    }
+});
